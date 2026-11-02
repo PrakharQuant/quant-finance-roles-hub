@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quant Finance Roles Hub | Prakhar Gupta</title>
+  <style>
+    :root {
+      --primary: #0a2540;
+      --accent: #0077b6;
+      --accent-light: #00b4d8;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5a6a7a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+    .credit {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .name-email h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+    .name-email a.email {
+      color: #a0c4e8;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .name-email a.email:hover { color: white; text-decoration: underline; }
+    .socials {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .socials a:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+    .socials a svg {
+      width: 20px;
+      height: 20px;
+    }
+    .socials a.linkedin:hover svg { fill: #0a66c2; }
+    .socials a.x:hover svg { fill: #000; }
+    .hero {
+      text-align: center;
+      padding: 3.5rem 1.5rem 2rem;
+      background: linear-gradient(135deg, #0a2540 0%, #123a5e 100%);
+      color: white;
+    }
+    .hero h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: 0 auto;
+      opacity: 0.92;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid #e8ecef;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex-grow: 1;
+      margin-bottom: 1rem;
+    }
+    .card a.btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      align-self: flex-start;
+      transition: background 0.2s;
+    }
+    .card a.btn:hover { background: #005f8a; }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary);
+      color: #a0c4e8;
+      font-size: 0.9rem;
+    }
+    footer a { color: white; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      header { flex-direction: column; text-align: center; }
+      .hero h2 { font-size: 1.8rem; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="credit">
+      <div class="name-email">
+        <h1>Prakhar Gupta</h1>
+        <a class="email" href="mailto:bestofprakhar@gmail.com">bestofprakhar@gmail.com</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/prakhar-gupta-5b7250372/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="https://x.com/PrakharQuant" target="_blank" rel="noopener" class="x" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>Quant Finance Roles Hub</h2>
+    <p>A single-page collection of career guides and skills insights across quantitative finance roles. Curated by Prakhar Gupta.</p>
+  </section>
+
+  <div class="container">
+    <p class="intro">Explore detailed guides on roles from Quant Developer and Risk Manager to Portfolio Management, Investment Banking, Actuarial Finance, and specialized trading desks. Each card summarizes key points — click through for the full resource.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Quant Developer — A Career Guide</h3>
+        <p>Bridges quantitative research and production: building pricing libraries, low-latency systems, backtesting engines, and execution algorithms. Emphasizes C++ (95% interview weight), Python, systems design, concurrency, and production safety. Covers tech stack (KDB+, FIX, Docker), employers (Citadel, Jane Street, Goldman), specializations, career path from junior to head of trading tech, and compensation (highest in HFT).</p>
+        <a class="btn" href="https://prakharquant.github.io/quant-developer/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Portfolio Manager Skills & Insights</h3>
+        <p>Analysis of skills and trajectories for Portfolio Managers from senior job postings. Focus on idea generation, portfolio construction, risk-adjusted performance. Skills: investment analysis, risk management, Bloomberg/Excel/Python, CFA. Path from Junior Analyst to CIO. Performance-driven progression with hybrid fundamental-quant approaches.</p>
+        <a class="btn" href="https://prakharquant.github.io/portfolio-manager-skills-insights/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Quant Portfolio Manager — A Career Guide</h3>
+        <p>Transforms statistical signals into profitable portfolios and P&L. Responsibilities: signal ownership, budget allocation (VaR/ES), P&L accountability, team management. Terminology: alpha, IC/IR, Sharpe, capacity. Skills heavy on statistics, portfolio theory, programming, ML. Career from PhD researcher to PM in 8–12 years with multi-million compensation potential.</p>
+        <a class="btn" href="https://prakharquant.github.io/quant-portfolio-manager/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Quant Risk Manager — A Career Guide</h3>
+        <p>Measures, stress-tests, and safeguards trading books. Models loss distributions (VaR, ES, Greeks, XVA), challenges valuations, defends capital under Basel III/FRTB. Skills: probability/stats (95%), stochastic calculus, Python/C++, regulatory fluency. Career from analyst to CRO; covers frameworks, employers, and modeling workstreams.</p>
+        <a class="btn" href="https://prakharquant.github.io/quant-risk-manager/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Investment Banking — A Career Guide</h3>
+        <p>Intermediary role focused on M&A advisory, LBOs, restructuring, and capital markets underwriting (ECM/DCM). Organization into coverage and products. Skills: financial modeling, Excel, grit. Bank tiers, compensation, analyst-to-MD path, and exits to PE/HF/corporate development.</p>
+        <a class="btn" href="https://prakharquant.github.io/investment-banking/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Actuarial Finance: A Quant Career Guide</h3>
+        <p>Measures and funds uncertainty in insurance, pensions, and government. Covers life, P&C, health, pensions, catastrophe modeling. Skills: probability, financial math, R/Python, accounting/regulation. Credentials via SOA/CAS exams. Career from analyst to Chief Actuary with practice areas in pricing, reserving, ALM.</p>
+        <a class="btn" href="https://prakharquant.github.io/actuarial-finance/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Currency Derivatives Trading</h3>
+        <p>World’s largest market (~$9.6T/day FX). Instruments: forwards, NDFs, options, exotics. Skills: stochastic calculus, Python/C++, ML, pricing (Black-Scholes, SABR), risk (VaR, XVA). Alpha via carry, vol trading, HFT, macro. Career ladder from researcher to senior PM/desk head with P&L share.</p>
+        <a class="btn" href="https://prakharquant.github.io/currency-derivatives-trading/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Commodity Trading — Quant Career Guide</h3>
+        <p>Trading real assets (oil, gas, metals, grains, power). Unique physical-financial hybrids, ~$13T+ notional. Skills: stats, stochastic calc, Python/C++, curves & logistics. Strategies: trend, carry, spreads, vol. Path from researcher/analyst to PM/trader; employers include Citadel, Goldman, Glencore.</p>
+        <a class="btn" href="https://prakharquant.github.io/commodity-trading-quant-career/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Commodities Skills & Career Insights</h3>
+        <p>Skills and paths in commodities trading, PM, and research. Fundamentals (supply-demand, seasonality, term structure) + quant tools (Python, derivatives). Trading & risk management, alternative data. Trajectories from Analyst to Desk Head/CIO. Emphasis on P&L performance and hybrid quant-trader paths.</p>
+        <a class="btn" href="https://prakharquant.github.io/commodities-skills-insights/" target="_blank">Read Full Guide</a>
+      </div>
+
+      <div class="card">
+        <h3>Fixed Income Skills & Career Insights</h3>
+        <p>US fixed income market focus: bond math (duration, convexity, DV01), yield curves, spreads (OAS), credit analysis. Tools: Bloomberg, Excel/VBA, Python, Aladdin. Certifications (CFA, FRM). Path from Analyst to MD/CIO; research-to-PM and sell-side-to-buy-side transitions. Growing data/AI/quant skills demand.</p>
+        <a class="btn" href="https://prakharquant.github.io/fixed-income-skills-insights/" target="_blank">Read Full Guide</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Created and curated by <strong>Prakhar Gupta</strong> · <a href="mailto:bestofprakhar@gmail.com">bestofprakhar@gmail.com</a></p>
+    <p style="margin-top:0.5rem; opacity:0.8;">All guides originally published on prakharquant.github.io</p>
+  </footer>
+</body>
+</html>
