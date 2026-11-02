@@ -8,11 +8,24 @@
     :root {
       --primary: #0a2540;
       --accent: #0077b6;
-      --accent-light: #00b4d8;
       --bg: #f8f9fa;
       --card: #ffffff;
       --text: #1a1a1a;
       --muted: #5a6a7a;
+      --border: #e8ecef;
+      --footer-bg: #0a2540;
+      --footer-text: #a0c4e8;
+    }
+    [data-theme="dark"] {
+      --primary: #1e3a5f;
+      --accent: #00b4d8;
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --border: #30363d;
+      --footer-bg: #010409;
+      --footer-text: #8b949e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -20,42 +33,135 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
     }
-    header {
-      background: var(--primary);
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem 2.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, #123a5e 100%);
       color: white;
-      padding: 1.25rem 2rem;
+    }
+    [data-theme="dark"] .hero {
+      background: linear-gradient(135deg, #0d1117 0%, #1e3a5f 100%);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.5px;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: 0 auto;
+      opacity: 0.92;
+    }
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 0.9rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: all 0.2s;
+    }
+    .theme-toggle:hover { transform: scale(1.05); }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    @media (min-width: 1200px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid var(--border);
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      flex-direction: column;
     }
-    .credit {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
     }
-    .name-email h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.15rem;
+    .card h3 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
     }
-    .name-email a.email {
-      color: #a0c4e8;
+    [data-theme="dark"] .card h3 { color: var(--accent); }
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-grow: 1;
+      margin-bottom: 1rem;
+    }
+    .card a.btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
       text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      align-self: flex-start;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .card a.btn:hover { opacity: 0.9; }
+    .card.education { border-left: 4px solid #28a745; }
+    .card.education h3 { color: #28a745; }
+    [data-theme="dark"] .card.education h3 { color: #3fb950; }
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--footer-bg);
+      color: var(--footer-text);
       font-size: 0.95rem;
     }
-    .name-email a.email:hover { color: white; text-decoration: underline; }
+    .footer-credit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .footer-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+    }
+    .footer-email a {
+      color: #a0c4e8;
+      text-decoration: none;
+    }
+    .footer-email a:hover { text-decoration: underline; color: white; }
     .socials {
       display: flex;
       gap: 0.75rem;
-      align-items: center;
+      margin-top: 0.25rem;
     }
     .socials a {
       display: inline-flex;
@@ -71,122 +177,18 @@
       background: white;
       transform: translateY(-2px);
     }
-    .socials a svg {
-      width: 20px;
-      height: 20px;
-    }
+    .socials a svg { width: 20px; height: 20px; }
     .socials a.linkedin:hover svg { fill: #0a66c2; }
     .socials a.x:hover svg { fill: #000; }
-    .hero {
-      text-align: center;
-      padding: 3.5rem 1.5rem 2rem;
-      background: linear-gradient(135deg, #0a2540 0%, #123a5e 100%);
-      color: white;
-    }
-    .hero h2 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.5px;
-    }
-    .hero p {
-      font-size: 1.15rem;
-      max-width: 720px;
-      margin: 0 auto;
-      opacity: 0.92;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
-    }
-    .intro {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border: 1px solid #e8ecef;
-      display: flex;
-      flex-direction: column;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
-    }
-    .card h3 {
-      color: var(--primary);
-      font-size: 1.25rem;
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      flex-grow: 1;
-      margin-bottom: 1rem;
-    }
-    .card a.btn {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      padding: 0.55rem 1.1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      align-self: flex-start;
-      transition: background 0.2s;
-    }
-    .card a.btn:hover { background: #005f8a; }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--primary);
-      color: #a0c4e8;
-      font-size: 0.9rem;
-    }
-    footer a { color: white; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    footer .sub { margin-top: 1rem; opacity: 0.8; font-size: 0.85rem; }
     @media (max-width: 600px) {
-      header { flex-direction: column; text-align: center; }
-      .hero h2 { font-size: 1.8rem; }
+      .hero h2 { font-size: 1.9rem; }
       .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="credit">
-      <div class="name-email">
-        <h1>Prakhar Gupta</h1>
-        <a class="email" href="mailto:bestofprakhar@gmail.com">bestofprakhar@gmail.com</a>
-      </div>
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/prakhar-gupta-5b7250372/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href="https://x.com/PrakharQuant" target="_blank" rel="noopener" class="x" aria-label="X (Twitter)">
-          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </header>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙 Dark</button>
 
   <section class="hero">
     <h2>Quant Finance Roles Hub</h2>
@@ -256,12 +258,65 @@
         <p>US fixed income market focus: bond math (duration, convexity, DV01), yield curves, spreads (OAS), credit analysis. Tools: Bloomberg, Excel/VBA, Python, Aladdin. Certifications (CFA, FRM). Path from Analyst to MD/CIO; research-to-PM and sell-side-to-buy-side transitions. Growing data/AI/quant skills demand.</p>
         <a class="btn" href="https://prakharquant.github.io/fixed-income-skills-insights/" target="_blank">Read Full Guide</a>
       </div>
+
+      <div class="card education">
+        <h3>Best Quant Finance Master’s — US</h3>
+        <p>Top programs based on 2026 QuantNet & Risk.net rankings: Baruch MFE (often #1), Princeton MFin, Carnegie Mellon MSCF, Columbia MFE, MIT MFin, UC Berkeley MFE, University of Chicago Financial Mathematics, Georgia Tech, NYU (Courant & Tandon), Cornell, and others. Strong placement, high compensation, and rigorous quant training.</p>
+        <a class="btn" href="https://mfe.baruch.cuny.edu/" target="_blank">Baruch MFE</a>
+        <a class="btn" href="https://bcf.princeton.edu/" target="_blank" style="margin-top:0.5rem;">Princeton MFin</a>
+        <a class="btn" href="https://www.quantnet.com/resources/categories/united-states.10/" target="_blank" style="margin-top:0.5rem;">QuantNet Rankings</a>
+      </div>
+
+      <div class="card education">
+        <h3>Best Quant Finance Master’s — Europe</h3>
+        <p>Leading European programs (Risk.net 2026): UZH/ETH Zurich MSc Quantitative Finance (top in Europe), EPFL Master in Financial Engineering, Imperial College MSc Mathematics and Finance, University of Oxford MSc Mathematical and Computational Finance, Technical University of Munich, WU Vienna, and strong French programs (e.g., El Karoui). Excellent technical depth and industry links.</p>
+        <a class="btn" href="https://www.msfinance.uzh.ch/en.html" target="_blank">UZH ETH Quant Finance</a>
+        <a class="btn" href="https://www.epfl.ch/schools/cdm/college-of-management-of-technology/education/masters/master_in_financial_engineering/" target="_blank" style="margin-top:0.5rem;">EPFL MFE</a>
+        <a class="btn" href="https://www.imperial.ac.uk/study/courses/postgraduate-taught/2026/mathematics-finance/" target="_blank" style="margin-top:0.5rem;">Imperial Maths & Finance</a>
+      </div>
     </div>
   </div>
 
   <footer>
-    <p>Created and curated by <strong>Prakhar Gupta</strong> · <a href="mailto:bestofprakhar@gmail.com">bestofprakhar@gmail.com</a></p>
-    <p style="margin-top:0.5rem; opacity:0.8;">All guides originally published on prakharquant.github.io</p>
+    <div class="footer-credit">
+      <div class="footer-name">Prakhar Gupta</div>
+      <div class="footer-email"><a href="mailto:bestofprakhar@gmail.com">bestofprakhar@gmail.com</a></div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/prakhar-gupta-5b7250372/" target="_blank" rel="noopener" class="linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="https://x.com/PrakharQuant" target="_blank" rel="noopener" class="x" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <p class="sub">All guides originally published on prakharquant.github.io · Curated by Prakhar Gupta</p>
   </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+
+    function updateButton() {
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      toggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+    }
+    updateButton();
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateButton();
+    });
+  </script>
 </body>
 </html>
